@@ -86,28 +86,28 @@ legend.onAdd = function (map) {
       "Heights Hill": "#ff00c8",
 
       "Hilltop 1": "#ff2108",
-      "Hilltop 2": "#ff2108",
+      "Hilltop 2": "#d55020",
 
-      "Stuckagain Heights 1": "#ff2108",
-      "Stuckagain Heights 2": "#ff2108",
+      "Stuckagain Heights 1": "#08009c",
+      "Stuckagain Heights 2": "#2033ac",
 
-      "Abbott Loop Northwest": "#ff2108",
-      "Abbott Loop Northeast": "#ff2108",
-      "Abbott Loop West": "#ff2108",
-      "Abbott Loop Center": "#ff2108",
-      "Abbott Loop East": "#ff2108",
+      "Abbott Loop Northwest": "#ffd900",
+      "Abbott Loop Northeast": "#d1bc00",
+      "Abbott Loop West": "#efff08",
+      "Abbott Loop Center": "#c7c713",
+      "Abbott Loop East": "#fffc52",
 
-      "100th Street Fire": "#ff2108",
-      "Goose Lake Fire": "#ff2108",
+      "100th Street Fire": "#666378",
+      "Goose Lake Fire": "#797c82",
       
       "Prospect Heights": "#720303",
       "Sahalee": "#c82d06",
     
       "Grandview": "#7300ff",
       "Moose River": "#ac05c2",
-      "Three Johns North": "#470165",
+      "Three Johns North": "#6e1893",
       "Three Johns Center": "#9746e8",
-      "Three Johns South": "#6f259c",
+      "Three Johns South": "#821cc1",
       "USFWS Preset": "#3e2c73"};
 
 
@@ -166,20 +166,20 @@ fetch("https://raw.githubusercontent.com/jenniferschmidt/fuelbreaks-webmap/refs/
 
       "Heights Hill": "#ff00c8",
 
-      "Hilltop 1": "#ff2108",
-      "Hilltop 2": "#ff2108",
+      "Hilltop": "#ff2108",
+      "Hilltop 2": "#d55020",
 
-      "Stuckagain Heights 1": "#ff2108",
-      "Stuckagain Heights 2": "#ff2108",
+      "Stuckagain Heights 1": "#08009c",
+      "Stuckagain Heights 2": "#2033ac",
 
-      "Abbott Loop Northwest": "#ff2108",
-      "Abbott Loop Northeast": "#ff2108",
-      "Abbott Loop West": "#ff2108",
-      "Abbott Loop Center": "#ff2108",
-      "Abbott Loop East": "#ff2108",
+      "Abbott Loop Northwest": "#ffd900",
+      "Abbott Loop Northeast": "#d1bc00",
+      "Abbott Loop West": "#efff08",
+      "Abbott Loop Center": "#c7c713",
+      "Abbott Loop East": "#fffc52",
 
-      "100th Street Fire": "#ff2108",
-      "Goose Lake Fire": "#ff2108",
+      "100th Street Fire": "#666378",
+      "Goose Lake Fire": "#797c82",
       
       "Prospect Heights": "#720303",
       "Sahalee": "#c82d06",
@@ -230,8 +230,7 @@ fetch("https://raw.githubusercontent.com/jenniferschmidt/fuelbreaks-webmap/refs/
             pannellum.viewer(containerId, {
               type: "equirectangular",
               //panorama: feature.properties.image_url, //(github upload)
-              //panorama: "https://alaskanrm.com/wp-content/uploads/2026/07/"+feature.properties.filename+"-scaled.jpg", //wordpress upload
-              panorama: feature.properties.google_drive_url, //(google drive upload)
+              panorama: "https://alaskanrm.com/wp-content/uploads/2026/07/"+feature.properties.filename+"-scaled.jpg", //wordpress upload
               autoLoad: true,
               showZoomCtrl: true,
               fullscreenButton: true
@@ -245,7 +244,7 @@ fetch("https://raw.githubusercontent.com/jenniferschmidt/fuelbreaks-webmap/refs/
   });
 
 // Load line layer with attached 360° videos
-fetch("https://raw.githubusercontent.com/springermoore/fuelbreaks-webmap/refs/heads/main/lines.geojson")
+fetch("https://raw.githubusercontent.com/jenniferschmidt/fuelbreaks-webmap/refs/heads/main/lines.geojson")
   .then(response => response.json())
   .then(lines => {
 
