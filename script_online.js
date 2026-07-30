@@ -84,7 +84,22 @@ legend.onAdd = function (map) {
       "Gasline 2": "#fda000",
 
       "Heights Hill": "#ff00c8",
-      "Hilltop": "#ff2108",
+
+      "Hilltop 1": "#ff2108",
+      "Hilltop 2": "#ff2108",
+
+      "Stuckagain Heights 1": "#ff2108",
+      "Stuckagain Heights 2": "#ff2108",
+
+      "Abbott Loop Northwest": "#ff2108",
+      "Abbott Loop Northeast": "#ff2108",
+      "Abbott Loop West": "#ff2108",
+      "Abbott Loop Center": "#ff2108",
+      "Abbott Loop East": "#ff2108",
+
+      "100th Street Fire": "#ff2108",
+      "Goose Lake Fire": "#ff2108",
+      
       "Prospect Heights": "#720303",
       "Sahalee": "#c82d06",
     
@@ -134,7 +149,7 @@ map.on("popupclose", function () {
 });
 
 // Load GeoJSON dynamically
-fetch("https://raw.githubusercontent.com/springermoore/fuelbreaks-webmap/refs/heads/main/points.geojson")
+fetch("https://raw.githubusercontent.com/jenniferschmidt/fuelbreaks-webmap/refs/heads/main/points.geojson")
   .then(response => response.json())
   .then(data => {
     const markerColors = {
@@ -150,7 +165,22 @@ fetch("https://raw.githubusercontent.com/springermoore/fuelbreaks-webmap/refs/he
       "Gasline 2": "#fda000",
 
       "Heights Hill": "#ff00c8",
-      "Hilltop": "#ff2108",
+
+      "Hilltop 1": "#ff2108",
+      "Hilltop 2": "#ff2108",
+
+      "Stuckagain Heights 1": "#ff2108",
+      "Stuckagain Heights 2": "#ff2108",
+
+      "Abbott Loop Northwest": "#ff2108",
+      "Abbott Loop Northeast": "#ff2108",
+      "Abbott Loop West": "#ff2108",
+      "Abbott Loop Center": "#ff2108",
+      "Abbott Loop East": "#ff2108",
+
+      "100th Street Fire": "#ff2108",
+      "Goose Lake Fire": "#ff2108",
+      
       "Prospect Heights": "#720303",
       "Sahalee": "#c82d06",
     
@@ -199,7 +229,9 @@ fetch("https://raw.githubusercontent.com/springermoore/fuelbreaks-webmap/refs/he
           setTimeout(function () {
             pannellum.viewer(containerId, {
               type: "equirectangular",
-              panorama: "https://alaskanrm.com/wp-content/uploads/2026/07/"+feature.properties.filename+"-scaled.jpg",
+              //panorama: feature.properties.image_url, //(github upload)
+              //panorama: "https://alaskanrm.com/wp-content/uploads/2026/07/"+feature.properties.filename+"-scaled.jpg", //wordpress upload
+              panorama: feature.properties.google_drive_url, //(google drive upload)
               autoLoad: true,
               showZoomCtrl: true,
               fullscreenButton: true
