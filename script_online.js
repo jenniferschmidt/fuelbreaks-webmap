@@ -71,6 +71,14 @@ var legend = L.control({ position: "bottomright" });
 legend.onAdd = function (map) {
     var div = L.DomUtil.create("div", "legend");
     div.id = "legend";
+
+    div.innerHTML = `
+        <div id="legend-toggle" style="cursor:pointer;font-weight:bold;">
+            Fuel Treatment Legend ▼
+        </div>
+        <div id="legend-content" style="display:none;"></div>
+    `;
+    
     var areas = {
       "Basher 1": "#2ff381",
       "Basher 2": "#00692c",
@@ -110,19 +118,47 @@ legend.onAdd = function (map) {
       "Three Johns South": "#821cc1",
       "USFWS Preset": "#3e2c73"};
 
+    const content = div.querySelector("#legend-content");
 
-    div.innerHTML += "<b>Fuel Treatment Legend</b><br>";
-
-    for (var area in areas) {
-        div.innerHTML +=
-            '<i style="background:' + areas[area] + '"></i> ' +
-            area + "<br>";
+    for (const area in areas) {
+        content.innerHTML += `
+            <i style="background:${areas[area]}"></i>
+            ${area}<br>
+        `;
     }
+
+    const toggle = div.querySelector("#legend-toggle");
+
+    toggle.addEventListener("click", function () {
+        if (content.style.display === "none") {
+            content.style.display = "block";
+            toggle.innerHTML = "Fuel Treatment Legend ▲";
+        } else {
+            content.style.display = "none";
+            toggle.innerHTML = "Fuel Treatment Legend ▼";
+        }
+    });
+
+
+    div.innerHTML += "</div>";
 
     return div;
   };
 
 legend.addTo(map);
+
+document.getElementById("legend-toggle").onclick = function () {
+    const content = document.getElementById("legend-content");
+    const toggle = document.getElementById("legend-toggle");
+
+    if (content.style.display === "none") {
+        content.style.display = "block";
+        toggle.innerHTML = "Fuel Treatment Legend ▲";
+    } else {
+        content.style.display = "none";
+        toggle.innerHTML = "Fuel Treatment Legend ▼";
+    }
+};
 
 var title = L.control({ position: "topleft" });
 
@@ -130,7 +166,7 @@ title.onAdd = function (map) {
     var div = L.DomUtil.create("div", "map-title");
     div.innerHTML = `
         360° Tour of Anchorage-Area Fuel Treatments
-        <div class="map-subtitle">Imagery taken by Springer Moore</div>
+        <div class="map-subtitle">Imagery taken by Springer Moore and Adina Salant, 2026</div>
     `;
     return div;
 };
