@@ -17,12 +17,12 @@ var esriSat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/
 });
 
 var labelLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}',{
-    maxZoom: 19,
+    maxZoom: 18,
     attribution: 'Places © Esri'
 });
 
 var streetLabels = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer/tile/{z}/{y}/{x}',{
-    maxZoom: 19,
+    maxZoom: 18,
     attribution: 'Street labels © Esri'
 });
 
@@ -254,7 +254,8 @@ fetch("https://raw.githubusercontent.com/jenniferschmidt/fuelbreaks-webmap/refs/
 
           var popupContent = `
             <div style="font-size:14px; margin-bottom:6px;">
-                <b>Date Collected:</b> ${collectionDate}
+                ${feature.properties.name} </b>Point</b> ${feature.properties.flag_id} <br>
+                <b> Date Collected:</b> ${collectionDate}
             </div>
 
             <div class="pano-container" id="${containerId}"></div>
