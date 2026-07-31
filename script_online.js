@@ -184,134 +184,11 @@ map.on("popupclose", function () {
     document.querySelector(".map-title").style.display = "block";
 });
 
-let imageType = "post";
-let pointData;
-let lineData;
-let pointLayer;
-let lineLayer;
-
-function updateImageryLayers() {
-
-    // Remove old photo points
-    if (pointLayer) {
-        map.removeLayer(pointLayer);
-    }
-
-    // Remove old video lines
-    if (lineLayer) {
-        map.removeLayer(lineLayer);
-    }
-
-
-    // Recreate photo layer
-    pointLayer = createPointLayer();
-    pointLayer.addTo(map);
-
-
-    // Recreate video layer
-    lineLayer = createLineLayer();
-    lineLayer.addTo(map);
-
-}
-
-function showImagery(feature) {
-
-    if (imageType === "post") {
-        return feature.properties.post === "Yes";
-    }
-
-    if (imageType === "pre") {
-        return feature.properties.pre === "Yes";
-    }
-
-    if (imageType === "firescar") {
-        return feature.properties.firescar === "Yes";
-    }
-
-    return false;
-}
-
-var imageSelector = L.control({
-    position: "topright"
-});
-
-
-imageSelector.onAdd = function(map){
-
-    var div = L.DomUtil.create(
-        "div",
-        "image-selector"
-    );
-
-
-    div.innerHTML = `
-
-        <b>Imagery Type</b><br>
-
-        <label>
-        <input type="radio" 
-               name="imagery"
-               value="post"
-               checked>
-        Post-treatment
-        </label><br>
-
-
-        <label>
-        <input type="radio"
-               name="imagery"
-               value="pre">
-        Pre-treatment
-        </label><br>
-
-
-        <label>
-        <input type="radio"
-               name="imagery"
-               value="firescar">
-        Fire Scars
-        </label>
-
-    `;
-
-
-    L.DomEvent.disableClickPropagation(div);
-
-
-    div.querySelectorAll("input").forEach(input => {
-
-
-        input.addEventListener(
-            "change",
-            function(){
-
-
-                imageType = this.value;
-
-
-                updateImageryLayers();
-
-
-            }
-        );
-
-
-    });
-
-
-    return div;
-
-};
-
-
-imageSelector.addTo(map);
-
 
 // Load GeoJSON dynamically
 fetch("https://raw.githubusercontent.com/jenniferschmidt/fuelbreaks-webmap/refs/heads/main/points.geojson")
   .then(response => response.json())
   .then(data => {
-    pointData = data;
     const markerColors = {
       "Basher 1": "#2ff381",
       "Basher 2": "#00692c",
@@ -352,14 +229,7 @@ fetch("https://raw.githubusercontent.com/jenniferschmidt/fuelbreaks-webmap/refs/
       "USFWS Preset": "#3e2c73"};
 
       
-      pointData = data;
-      pointLayer = createPointLayer();
-      pointLayer.addTo(map);
-
-      function createPointLayer(){
-
-        return L.geoJSON(pointData, {
-      
+    var pointLayer = L.geoJSON(data, {
       pointToLayer: function (feature, latlng) {
         const area = feature.properties.name;
         const color = markerColors[area] || "#000000"; // fallback black
@@ -394,24 +264,10 @@ fetch("https://raw.githubusercontent.com/jenniferschmidt/fuelbreaks-webmap/refs/
 
           // Delay to ensure popup is rendered
           setTimeout(function () {
-            let imageFile;
-
-            if (imageType === "post") {
-                imageFile = feature.properties.filename;
-            }
-
-            if (imageType === "pre") {
-              imageFile = feature.properties.pre_filename;
-            }
-
-            if (imageType === "firescar") {
-                imageFile = feature.properties.fire_filename;
-            }
-
             pannellum.viewer(containerId, {
               type: "equirectangular",
               //panorama: feature.properties.image_url, //(github upload)
-              panorama: "https://alaskanrm.com/wp-content/uploads/2026/07/"+image_File+"-scaled.jpg", //wordpress upload
+              panorama: "https://alaskanrm.com/wp-content/uploads/2026/07/"+feature.properties.filename+".jpg", //wordpress upload
               autoLoad: true,
               showZoomCtrl: true,
               fullscreenButton: true
@@ -422,19 +278,14 @@ fetch("https://raw.githubusercontent.com/jenniferschmidt/fuelbreaks-webmap/refs/
     }).addTo(map);
     layerControl.addOverlay(pointLayer, "360° Image Points");
     
-  }});
+  });
 
 // Load line layer with attached 360° videos
 fetch("https://raw.githubusercontent.com/jenniferschmidt/fuelbreaks-webmap/refs/heads/main/lines.geojson")
   .then(response => response.json())
   .then(lines => {
-    lineData = lines;
 
-    lineLayer = L.geoJSON(lines, {
-      filter: function(feature){
-        return(showImagery(feature));
-      },
-
+    var lineLayer = L.geoJSON(lines, {
       style: function(feature) {
         return {
           color: "#ff6600",
@@ -446,20 +297,8 @@ fetch("https://raw.githubusercontent.com/jenniferschmidt/fuelbreaks-webmap/refs/
       onEachFeature: function(feature, layer) {
 
           layer.on("click", function() {
-              let youtubeId;
 
-              if (imageType === "post") {
-                  youtubeId = feature.properties.post_youtube;
-              }
-
-              if (imageType === "pre") {
-                  youtubeId = feature.properties.pre_youtube;
-              }
-
-              if (imageType === "firescar") {
-                  youtubeId = feature.properties.fire_youtube;
-              }
-
+              const youtubeId = feature.properties.youtube;
               const collectionDate = feature.properties.col_date;
 
               layer.bindPopup(
