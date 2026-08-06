@@ -104,6 +104,7 @@ legend.onAdd = function (map) {
       "Abbott Loop West": "#efff08",
       "Abbott Loop West Pre": "#e4f127",
       "Abbott Loop Center": "#c7c713",
+      "Abbott Loop Center Pre": "#cdcd31",
       "Abbott Loop East": "#fffc52",
       "Abbott Loop East Pre": "#fffd90",
 
@@ -216,6 +217,7 @@ fetch("https://raw.githubusercontent.com/jenniferschmidt/fuelbreaks-webmap/refs/
       "Abbott Loop West": "#efff08",
       "Abbott Loop West Pre": "#e4f127",
       "Abbott Loop Center": "#c7c713",
+      "Abbott Loop Center Pre": "#cdcd31",
       "Abbott Loop East": "#fffc52",
       "Abbott Loop East Pre": "#fffd90",
 
