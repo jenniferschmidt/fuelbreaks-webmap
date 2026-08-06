@@ -102,8 +102,10 @@ legend.onAdd = function (map) {
       "Abbott Loop Northwest": "#ffd900",
       "Abbott Loop Northeast": "#d1bc00",
       "Abbott Loop West": "#efff08",
+      "Abbott Loop West Pre": "#e4f127",
       "Abbott Loop Center": "#c7c713",
       "Abbott Loop East": "#fffc52",
+      "Abbott Loop East Pre": "#fffd90",
 
       "100th Street Fire": "#666378",
       "Goose Lake Fire": "#797c82",
@@ -212,8 +214,10 @@ fetch("https://raw.githubusercontent.com/jenniferschmidt/fuelbreaks-webmap/refs/
       "Abbott Loop Northwest": "#ffd900",
       "Abbott Loop Northeast": "#d1bc00",
       "Abbott Loop West": "#efff08",
+      "Abbott Loop West Pre": "#e4f127",
       "Abbott Loop Center": "#c7c713",
       "Abbott Loop East": "#fffc52",
+      "Abbott Loop East Pre": "#fffd90",
 
       "100th Street Fire": "#666378",
       "Goose Lake Fire": "#797c82",
