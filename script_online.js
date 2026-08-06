@@ -1,7 +1,8 @@
 // Initialize map
 var map = L.map('map', {
     fullscreenControl: true
-}).setView([61.15, -149.7], 9);
+//}).setView([61.15, -149.7], 9);
+}).setView([60.9, -150.1], 8);
 
 
 
@@ -48,14 +49,16 @@ var usgsTopo = L.tileLayer('https://basemap.nationalmap.gov/arcgis/rest/services
     attribution: 'Tiles courtesy of the <a href="https://www.usgs.gov/">U.S. Geological Survey</a>'
 });
 
+var esriHybrid = L.layerGroup([esriSat, labelLayer, streetLabels])
+
 // Add default layer to the map
-osm.addTo(map);
+esriHybrid.addTo(map);
 
 // Basemap control panel
 var baseMaps = {
     "OpenStreetMap": osm,
     "Esri Satellite Imagery": esriSat,
-    "Esri Hybrid Imagery": L.layerGroup([esriSat, labelLayer, streetLabels]),
+    "Esri Hybrid Imagery": esriHybrid,
     "Google Satellite Imagery": googleSat,
     "Google Hybrid Imagery": googleHybrid,
     "USGS Topographic Map": usgsTopo,
