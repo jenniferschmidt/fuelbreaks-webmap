@@ -88,19 +88,17 @@ legend.onAdd = function (map) {
       "Basher 3": "#249754",
       "Basher 4": "#7cfb98",
 
-      "Hiland Upper": "#68bdf5",
-      "Hiland Lower": "#2182c3",
+      "Stuckagain Heights 1": "#08009c",
+      "Stuckagain Heights 2": "#2033ac",
 
       "Gasline 1": "#d86609",
       "Gasline 2": "#fda000",
 
       "Heights Hill": "#ff00c8",
 
-      "Hilltop 1": "#ff2108",
+      "Hilltop": "#ff2108",
       "Hilltop 2": "#d55020",
-
-      "Stuckagain Heights 1": "#08009c",
-      "Stuckagain Heights 2": "#2033ac",
+      "Prospect Heights": "#c82d06",
 
       "Abbott Loop Northwest": "#ffd900",
       "Abbott Loop Northeast": "#d1bc00",
@@ -111,18 +109,20 @@ legend.onAdd = function (map) {
       "Abbott Loop East": "#fffc52",
       "Abbott Loop East Pre": "#fffd90",
 
-      "100th Street Fire": "#666378",
-      "Goose Lake Fire": "#797c82",
-      
-      "Prospect Heights": "#720303",
-      "Sahalee": "#c82d06",
-    
-      "Grandview": "#7300ff",
+      "Sahalee": "#720303",
+
+      "Hiland Upper": "#68bdf5",
+      "Hiland Lower": "#2182c3",
+
+      "Grandview": "#221236",
       "Moose River": "#ac05c2",
       "Three Johns North": "#6e1893",
       "Three Johns Center": "#9746e8",
       "Three Johns South": "#821cc1",
-      "USFWS Preset": "#3e2c73"};
+      "USFWS Preset": "#3e2c73",
+
+      "100th Street Fire": "#666378",
+      "Goose Lake Fire": "#797c82"};
 
     const content = div.querySelector("#legend-content");
 
@@ -201,8 +201,8 @@ fetch("https://raw.githubusercontent.com/jenniferschmidt/fuelbreaks-webmap/refs/
       "Basher 3": "#249754",
       "Basher 4": "#7cfb98",
 
-      "Hiland Upper": "#68bdf5",
-      "Hiland Lower": "#2182c3",
+      "Stuckagain Heights 1": "#08009c",
+      "Stuckagain Heights 2": "#2033ac",
 
       "Gasline 1": "#d86609",
       "Gasline 2": "#fda000",
@@ -211,9 +211,7 @@ fetch("https://raw.githubusercontent.com/jenniferschmidt/fuelbreaks-webmap/refs/
 
       "Hilltop": "#ff2108",
       "Hilltop 2": "#d55020",
-
-      "Stuckagain Heights 1": "#08009c",
-      "Stuckagain Heights 2": "#2033ac",
+      "Prospect Heights": "#c82d06",
 
       "Abbott Loop Northwest": "#ffd900",
       "Abbott Loop Northeast": "#d1bc00",
@@ -224,18 +222,20 @@ fetch("https://raw.githubusercontent.com/jenniferschmidt/fuelbreaks-webmap/refs/
       "Abbott Loop East": "#fffc52",
       "Abbott Loop East Pre": "#fffd90",
 
-      "100th Street Fire": "#666378",
-      "Goose Lake Fire": "#797c82",
-      
-      "Prospect Heights": "#720303",
-      "Sahalee": "#c82d06",
-    
-      "Grandview": "#7300ff",
+      "Sahalee": "#720303",
+
+      "Hiland Upper": "#68bdf5",
+      "Hiland Lower": "#2182c3",
+
+      "Grandview": "#221236",
       "Moose River": "#ac05c2",
       "Three Johns North": "#6e1893",
       "Three Johns Center": "#9746e8",
       "Three Johns South": "#821cc1",
-      "USFWS Preset": "#3e2c73"};
+      "USFWS Preset": "#3e2c73",
+
+      "100th Street Fire": "#666378",
+      "Goose Lake Fire": "#797c82"};
 
       
     var pointLayer = L.geoJSON(data, {
