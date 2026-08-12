@@ -98,7 +98,7 @@ legend.onAdd = function (map) {
 
       "Hilltop": "#ff2108",
       "Hilltop 2": "#d55020",
-      "Prospect Heights": "#c82d06",
+      "Prospect Heights": "#d43d17",
 
       "Abbott Loop Northwest": "#ffd900",
       "Abbott Loop Northeast": "#d1bc00",
