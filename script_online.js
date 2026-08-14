@@ -195,7 +195,7 @@ map.on("popupclose", function () {
 
 
 // Load GeoJSON dynamically
-// fetch("https://raw.githubusercontent.com/jenniferschmidt/fuelbreaks-webmap/refs/heads/main/points.geojson")
+//fetch("https://raw.githubusercontent.com/jenniferschmidt/fuelbreaks-webmap/refs/heads/main/points.geojson")
 fetch("./points.geojson")
   .then(response => response.json())
   .then(data => {
@@ -299,7 +299,7 @@ fetch("./points.geojson")
   });
 
 // Load line layer with attached 360° videos
-// fetch("https://raw.githubusercontent.com/jenniferschmidt/fuelbreaks-webmap/refs/heads/main/lines.geojson")
+//fetch("https://raw.githubusercontent.com/jenniferschmidt/fuelbreaks-webmap/refs/heads/main/lines.geojson")
 fetch("./lines.geojson")
   .then(response => response.json())
   .then(lines => {
