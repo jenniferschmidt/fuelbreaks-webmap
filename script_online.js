@@ -195,7 +195,7 @@ map.on("popupclose", function () {
 
 
 // Load GeoJSON dynamically
-fetch("alaskanrm.gi.alaska.edu/var/www/html/fuelbreaks-webmap/points.json")
+fetch("alaskanrm.com/var/www/html/fuelbreaks-webmap/points.json")
   .then(response => response.json())
   .then(data => {
     const markerColors = {
