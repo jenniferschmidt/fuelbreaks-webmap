@@ -195,7 +195,8 @@ map.on("popupclose", function () {
 
 
 // Load GeoJSON dynamically
-fetch("alaskanrm.com/var/www/html/fuelbreaks-webmap/points.json")
+// fetch("https://raw.githubusercontent.com/jenniferschmidt/fuelbreaks-webmap/refs/heads/main/points.geojson")
+fetch("./points.geojson")
   .then(response => response.json())
   .then(data => {
     const markerColors = {
@@ -298,7 +299,8 @@ fetch("alaskanrm.com/var/www/html/fuelbreaks-webmap/points.json")
   });
 
 // Load line layer with attached 360° videos
-fetch("https://raw.githubusercontent.com/jenniferschmidt/fuelbreaks-webmap/refs/heads/main/lines.geojson")
+// fetch("https://raw.githubusercontent.com/jenniferschmidt/fuelbreaks-webmap/refs/heads/main/lines.geojson")
+fetch("./lines.geojson")
   .then(response => response.json())
   .then(lines => {
 
