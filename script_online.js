@@ -109,6 +109,9 @@ legend.onAdd = function (map) {
       "Abbott Loop East": "#fffc52",
       "Abbott Loop East Pre": "#fffd90",
 
+      "Speedway East": "#b0821f",
+      "Speedway West": "#b79900",
+
       "Sahalee": "#720303",
 
       "Hiland Upper": "#68bdf5",
@@ -172,7 +175,7 @@ title.onAdd = function (map) {
     var div = L.DomUtil.create("div", "map-title");
     div.innerHTML = `
         360° Tour of Anchorage-Area Fuel Treatments
-        <div class="map-subtitle">Imagery taken by Springer Moore and Adina Salant, 2026</div>
+        <div class="map-subtitle">Imagery taken by Springer Moore, Jen Schmidt and Adina Salant, 2026</div>
     `;
     return div;
 };
@@ -192,7 +195,7 @@ map.on("popupclose", function () {
 
 
 // Load GeoJSON dynamically
-fetch("https://raw.githubusercontent.com/jenniferschmidt/fuelbreaks-webmap/refs/heads/main/points.geojson")
+fetch("alaskanrm.gi.alaska.edu/var/www/html/fuelbreaks-webmap/points.json")
   .then(response => response.json())
   .then(data => {
     const markerColors = {
@@ -221,6 +224,9 @@ fetch("https://raw.githubusercontent.com/jenniferschmidt/fuelbreaks-webmap/refs/
       "Abbott Loop Center Pre": "#dfdf47",
       "Abbott Loop East": "#fffc52",
       "Abbott Loop East Pre": "#fffd90",
+
+      "Speedway East": "#b0821f",
+      "Speedway West": "#b79900",
 
       "Sahalee": "#720303",
 
