@@ -284,7 +284,7 @@ fetch("alaskanrm.gi.alaska.edu/var/www/html/fuelbreaks-webmap/points.json")
               type: "equirectangular",
               //panorama: feature.properties.image_url, //(github upload)
               //panorama: feature.properties.wordpress_url, //wordpress upload
-              panorama: "https://alaskanrm.gi.alaska.edu/360images/"+feature.properties.filename+".jpg",
+              panorama: "https://alaskanrm.com/360images/"+feature.properties.filename+".jpg",
               autoLoad: true,
               showZoomCtrl: true,
               fullscreenButton: true
